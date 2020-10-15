@@ -1,0 +1,3 @@
+long = int
+
+class Int64(long): ...
