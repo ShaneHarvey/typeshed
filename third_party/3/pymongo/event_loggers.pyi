@@ -1,5 +1,6 @@
-from pymongo import monitoring
 from typing import Any
+
+from pymongo import monitoring
 
 class CommandLogger(monitoring.CommandListener):
     def started(self, event: Any) -> None: ...

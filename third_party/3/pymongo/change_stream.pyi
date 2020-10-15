@@ -1,7 +1,19 @@
 from typing import Any, Mapping
 
 class ChangeStream:
-    def __init__(self, target: Any, pipeline: Any, full_document: Any, resume_after: Any, max_await_time_ms: Any, batch_size: Any, collation: Any, start_at_operation_time: Any, session: Any, start_after: Any) -> None: ...
+    def __init__(
+        self,
+        target: Any,
+        pipeline: Any,
+        full_document: Any,
+        resume_after: Any,
+        max_await_time_ms: Any,
+        batch_size: Any,
+        collation: Any,
+        start_at_operation_time: Any,
+        session: Any,
+        start_after: Any,
+    ) -> None: ...
     def close(self) -> None: ...
     def __iter__(self) -> Any: ...
     @property

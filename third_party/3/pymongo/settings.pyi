@@ -1,11 +1,26 @@
 import threading
+from typing import Any, Dict, List, Optional, Tuple
+
 from pymongo.monitor import Monitor
 from pymongo.pool import Pool, PoolOptions
 from pymongo.server_description import ServerDescription
-from typing import Any, Dict, List, Optional, Tuple
 
 class TopologySettings:
-    def __init__(self, seeds: Optional[Any] = ..., replica_set_name: Optional[Any] = ..., pool_class: Optional[Any] = ..., pool_options: Optional[Any] = ..., monitor_class: Optional[Any] = ..., condition_class: Optional[Any] = ..., local_threshold_ms: Any = ..., server_selection_timeout: Any = ..., heartbeat_frequency: Any = ..., server_selector: Optional[Any] = ..., fqdn: Optional[Any] = ..., direct_connection: Optional[Any] = ...) -> None: ...
+    def __init__(
+        self,
+        seeds: Optional[Any] = ...,
+        replica_set_name: Optional[Any] = ...,
+        pool_class: Optional[Any] = ...,
+        pool_options: Optional[Any] = ...,
+        monitor_class: Optional[Any] = ...,
+        condition_class: Optional[Any] = ...,
+        local_threshold_ms: Any = ...,
+        server_selection_timeout: Any = ...,
+        heartbeat_frequency: Any = ...,
+        server_selector: Optional[Any] = ...,
+        fqdn: Optional[Any] = ...,
+        direct_connection: Optional[Any] = ...,
+    ) -> None: ...
     @property
     def seeds(self) -> List[Tuple[str, int]]: ...
     @property

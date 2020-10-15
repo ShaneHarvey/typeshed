@@ -1,6 +1,7 @@
 from collections import namedtuple
-from pymongo.pool import SocketInfo
 from typing import Any
+
+from pymongo.pool import SocketInfo
 
 HAVE_KERBEROS: bool
 MECHANISMS: Any
@@ -12,11 +13,11 @@ class _Cache:
     def __ne__(self, other: Any) -> Any: ...
     def __hash__(self) -> Any: ...
 
-MongoCredential = namedtuple('MongoCredential', ['mechanism', 'source', 'username', 'password', 'mechanism_properties', 'cache'])
+MongoCredential = namedtuple("MongoCredential", ["mechanism", "source", "username", "password", "mechanism_properties", "cache"])
 
-GSSAPIProperties = namedtuple('GSSAPIProperties', ['service_name', 'canonicalize_host_name', 'service_realm'])
+GSSAPIProperties = namedtuple("GSSAPIProperties", ["service_name", "canonicalize_host_name", "service_realm"])
 
-_AWSProperties = namedtuple('AWSProperties', ['aws_session_token'])
+_AWSProperties = namedtuple("AWSProperties", ["aws_session_token"])
 
 class _AuthContext:
     credentials: Any = ...

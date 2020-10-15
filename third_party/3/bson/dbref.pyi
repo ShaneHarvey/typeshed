@@ -1,8 +1,11 @@
-from bson.son import SON
 from typing import Any, Mapping, Optional
 
+from bson.son import SON
+
 class DBRef:
-    def __init__(self, collection: str, id: Any, database: Optional[str]=..., _extra: Mapping[str, Any]=..., **kwargs: Any) -> None: ...
+    def __init__(
+        self, collection: str, id: Any, database: Optional[str] = ..., _extra: Mapping[str, Any] = ..., **kwargs: Any
+    ) -> None: ...
     @property
     def collection(self) -> str: ...
     @property

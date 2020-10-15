@@ -1,6 +1,7 @@
 import datetime
-from pymongo.pool import Pool, SocketInfo
 from typing import Any, Tuple
+
+from pymongo.pool import Pool, SocketInfo
 
 class Response:
     def __init__(self, data: Any, address: Any, request_id: Any, duration: Any, from_command: Any, docs: Any) -> None: ...
@@ -18,7 +19,9 @@ class Response:
     def docs(self): ...
 
 class ExhaustResponse(Response):
-    def __init__(self, data: Any, address: Any, socket_info: Any, pool: Any, request_id: Any, duration: Any, from_command: Any, docs: Any) -> None: ...
+    def __init__(
+        self, data: Any, address: Any, socket_info: Any, pool: Any, request_id: Any, duration: Any, from_command: Any, docs: Any
+    ) -> None: ...
     @property
     def socket_info(self) -> SocketInfo: ...
     @property

@@ -16,7 +16,9 @@ class DeleteMany:
     def __ne__(self, other: Any) -> Any: ...
 
 class ReplaceOne:
-    def __init__(self, filter: Any, replacement: Any, upsert: bool = ..., collation: Optional[Any] = ..., hint: Optional[Any] = ...) -> None: ...
+    def __init__(
+        self, filter: Any, replacement: Any, upsert: bool = ..., collation: Optional[Any] = ..., hint: Optional[Any] = ...
+    ) -> None: ...
     def __eq__(self, other: Any) -> Any: ...
     def __ne__(self, other: Any) -> Any: ...
 
@@ -26,10 +28,26 @@ class _UpdateOp:
     def __ne__(self, other: Any) -> Any: ...
 
 class UpdateOne(_UpdateOp):
-    def __init__(self, filter: Any, update: Any, upsert: bool = ..., collation: Optional[Any] = ..., array_filters: Optional[Any] = ..., hint: Optional[Any] = ...) -> None: ...
+    def __init__(
+        self,
+        filter: Any,
+        update: Any,
+        upsert: bool = ...,
+        collation: Optional[Any] = ...,
+        array_filters: Optional[Any] = ...,
+        hint: Optional[Any] = ...,
+    ) -> None: ...
 
 class UpdateMany(_UpdateOp):
-    def __init__(self, filter: Any, update: Any, upsert: bool = ..., collation: Optional[Any] = ..., array_filters: Optional[Any] = ..., hint: Optional[Any] = ...) -> None: ...
+    def __init__(
+        self,
+        filter: Any,
+        update: Any,
+        upsert: bool = ...,
+        collation: Optional[Any] = ...,
+        array_filters: Optional[Any] = ...,
+        hint: Optional[Any] = ...,
+    ) -> None: ...
 
 class IndexModel:
     def __init__(self, keys: Union[str, Sequence[Tuple[str, Union[int, str]]]], **kwargs: Any) -> None: ...

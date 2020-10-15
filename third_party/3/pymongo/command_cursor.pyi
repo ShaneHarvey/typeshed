@@ -1,10 +1,21 @@
+from typing import Any, Dict, Optional, Tuple
+
 from pymongo import message as message
 from pymongo.client_session import ClientSession
 from pymongo.collection import Collection
-from typing import Any, Dict, Optional, Tuple
 
 class CommandCursor:
-    def __init__(self, collection: Collection, cursor_info: Dict[str, Any], address: Tuple[str, int], retrieved: int=..., batch_size: int=..., max_await_time_ms: Optional[int]=..., session: Optional[ClientSession]=..., explicit_session: bool=...) -> None: ...
+    def __init__(
+        self,
+        collection: Collection,
+        cursor_info: Dict[str, Any],
+        address: Tuple[str, int],
+        retrieved: int = ...,
+        batch_size: int = ...,
+        max_await_time_ms: Optional[int] = ...,
+        session: Optional[ClientSession] = ...,
+        explicit_session: bool = ...,
+    ) -> None: ...
     def __del__(self) -> None: ...
     def close(self) -> None: ...
     def batch_size(self, batch_size: int) -> CommandCursor: ...
@@ -23,5 +34,15 @@ class CommandCursor:
     def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None: ...
 
 class RawBatchCommandCursor(CommandCursor):
-    def __init__(self, collection: Any, cursor_info: Any, address: Any, retrieved: int = ..., batch_size: int = ..., max_await_time_ms: Optional[Any] = ..., session: Optional[Any] = ..., explicit_session: bool = ...) -> None: ...
+    def __init__(
+        self,
+        collection: Any,
+        cursor_info: Any,
+        address: Any,
+        retrieved: int = ...,
+        batch_size: int = ...,
+        max_await_time_ms: Optional[Any] = ...,
+        session: Optional[Any] = ...,
+        explicit_session: bool = ...,
+    ) -> None: ...
     def __getitem__(self, index: Any) -> None: ...

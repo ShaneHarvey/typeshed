@@ -1,5 +1,6 @@
-from pymongo_auth_aws import AwsSaslContext
 from typing import Any
+
+from pymongo_auth_aws import AwsSaslContext
 
 class AwsSaslContext:
     def __init__(self, credentials: Any) -> None: ...

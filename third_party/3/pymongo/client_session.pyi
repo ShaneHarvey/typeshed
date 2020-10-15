@@ -1,21 +1,30 @@
 import collections
+from typing import Any, Dict, Mapping, Optional
+
 from bson.binary import Binary
 from bson.timestamp import Timestamp
 from pymongo.mongo_client import MongoClient
 from pymongo.read_concern import ReadConcern
 from pymongo.read_preferences import _ServerMode
 from pymongo.write_concern import WriteConcern
-from typing import Any, Dict, Mapping, Optional
 
 class SessionOptions:
-    def __init__(self, causal_consistency: bool=..., default_transaction_options: Optional[TransactionOptions]=...) -> None: ...
+    def __init__(
+        self, causal_consistency: bool = ..., default_transaction_options: Optional[TransactionOptions] = ...
+    ) -> None: ...
     @property
     def causal_consistency(self) -> bool: ...
     @property
     def default_transaction_options(self) -> Optional[TransactionOptions]: ...
 
 class TransactionOptions:
-    def __init__(self, read_concern: Optional[Any] = ..., write_concern: Optional[Any] = ..., read_preference: Optional[Any] = ..., max_commit_time_ms: Optional[Any] = ...) -> None: ...
+    def __init__(
+        self,
+        read_concern: Optional[Any] = ...,
+        write_concern: Optional[Any] = ...,
+        read_preference: Optional[Any] = ...,
+        max_commit_time_ms: Optional[Any] = ...,
+    ) -> None: ...
     @property
     def read_concern(self) -> ReadConcern: ...
     @property
@@ -64,8 +73,21 @@ class ClientSession:
     def cluster_time(self) -> Mapping[str, Timestamp]: ...
     @property
     def operation_time(self) -> Timestamp: ...
-    def with_transaction(self, callback: Any, read_concern: Optional[Any] = ..., write_concern: Optional[Any] = ..., read_preference: Optional[Any] = ..., max_commit_time_ms: Optional[Any] = ...): ...
-    def start_transaction(self, read_concern: Optional[Any] = ..., write_concern: Optional[Any] = ..., read_preference: Optional[Any] = ..., max_commit_time_ms: Optional[Any] = ...): ...
+    def with_transaction(
+        self,
+        callback: Any,
+        read_concern: Optional[Any] = ...,
+        write_concern: Optional[Any] = ...,
+        read_preference: Optional[Any] = ...,
+        max_commit_time_ms: Optional[Any] = ...,
+    ): ...
+    def start_transaction(
+        self,
+        read_concern: Optional[Any] = ...,
+        write_concern: Optional[Any] = ...,
+        read_preference: Optional[Any] = ...,
+        max_commit_time_ms: Optional[Any] = ...,
+    ): ...
     def commit_transaction(self) -> None: ...
     def abort_transaction(self) -> None: ...
     def advance_cluster_time(self, cluster_time: Mapping[str, Timestamp]) -> None: ...

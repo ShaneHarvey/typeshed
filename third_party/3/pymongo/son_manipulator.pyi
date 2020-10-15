@@ -1,6 +1,7 @@
+from typing import Any, Dict, Mapping
+
 from pymongo.collection import Collection
 from pymongo.database import Database
-from typing import Any, Dict, Mapping
 
 class SONManipulator:
     def will_copy(self) -> bool: ...

@@ -1,7 +1,8 @@
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple, Union
+
 from pymongo.collation import Collation
 from pymongo.collection import Collection
 from pymongo.pool import Pool, SocketInfo
-from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple, Union
 
 class CursorType:
     NON_TAILABLE: int = ...
@@ -17,7 +18,34 @@ class _SocketManager:
     def close(self) -> None: ...
 
 class Cursor:
-    def __init__(self, collection: Any, filter: Optional[Any] = ..., projection: Optional[Any] = ..., skip: int = ..., limit: int = ..., no_cursor_timeout: bool = ..., cursor_type: Any = ..., sort: Optional[Any] = ..., allow_partial_results: bool = ..., oplog_replay: bool = ..., modifiers: Optional[Any] = ..., batch_size: int = ..., manipulate: bool = ..., collation: Optional[Any] = ..., hint: Optional[Any] = ..., max_scan: Optional[Any] = ..., max_time_ms: Optional[Any] = ..., max: Optional[Any] = ..., min: Optional[Any] = ..., return_key: bool = ..., show_record_id: bool = ..., snapshot: bool = ..., comment: Optional[Any] = ..., session: Optional[Any] = ..., allow_disk_use: Optional[Any] = ...) -> None: ...
+    def __init__(
+        self,
+        collection: Any,
+        filter: Optional[Any] = ...,
+        projection: Optional[Any] = ...,
+        skip: int = ...,
+        limit: int = ...,
+        no_cursor_timeout: bool = ...,
+        cursor_type: Any = ...,
+        sort: Optional[Any] = ...,
+        allow_partial_results: bool = ...,
+        oplog_replay: bool = ...,
+        modifiers: Optional[Any] = ...,
+        batch_size: int = ...,
+        manipulate: bool = ...,
+        collation: Optional[Any] = ...,
+        hint: Optional[Any] = ...,
+        max_scan: Optional[Any] = ...,
+        max_time_ms: Optional[Any] = ...,
+        max: Optional[Any] = ...,
+        min: Optional[Any] = ...,
+        return_key: bool = ...,
+        show_record_id: bool = ...,
+        snapshot: bool = ...,
+        comment: Optional[Any] = ...,
+        session: Optional[Any] = ...,
+        allow_disk_use: Optional[Any] = ...,
+    ) -> None: ...
     @property
     def collection(self) -> Collection: ...
     @property
@@ -38,8 +66,10 @@ class Cursor:
     def max_scan(self, max_scan: int) -> Cursor: ...
     def max(self, spec: Sequence[Tuple[str, int]]) -> Cursor: ...
     def min(self, spec: Sequence[Tuple[str, int]]) -> Cursor: ...
-    def sort(self, key_or_list: Union[str, Sequence[Tuple[str, Union[int, str]]]], direction: Optional[Union[int, str]]=...) -> Cursor: ...
-    def count(self, with_limit_and_skip: bool=...) -> int: ...
+    def sort(
+        self, key_or_list: Union[str, Sequence[Tuple[str, Union[int, str]]]], direction: Optional[Union[int, str]] = ...
+    ) -> Cursor: ...
+    def count(self, with_limit_and_skip: bool = ...) -> int: ...
     def distinct(self, key: str) -> List[Any]: ...
     def explain(self) -> Dict[str, Any]: ...
     def hint(self, index: Union[str, Tuple[str, Union[int, str]]]) -> Cursor: ...

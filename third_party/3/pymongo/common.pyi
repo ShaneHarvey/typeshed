@@ -1,10 +1,11 @@
 import datetime
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+
 from bson.codec_options import CodecOptions
 from bson.py3compat import abc
 from pymongo.read_concern import ReadConcern
 from pymongo.read_preferences import _ServerMode
 from pymongo.write_concern import WriteConcern
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 
 ORDERED_TYPES: Any
 MAX_BSON_SIZE: Any
@@ -86,12 +87,14 @@ TIMEOUT_OPTIONS: Any
 
 def validate_auth_option(option: str, value: Any) -> Tuple[str, Any]: ...
 def validate(option: str, value: Any) -> Tuple[str, Any]: ...
-def get_validated_options(options: Mapping[str, Any], warn: bool=...) -> Dict[str, Any]: ...
+def get_validated_options(options: Mapping[str, Any], warn: bool = ...) -> Dict[str, Any]: ...
 
 WRITE_CONCERN_OPTIONS: Any
 
 class BaseObject:
-    def __init__(self, codec_options: CodecOptions, read_preference: _ServerMode, write_concern: WriteConcern, read_concern: ReadConcern) -> None: ...
+    def __init__(
+        self, codec_options: CodecOptions, read_preference: _ServerMode, write_concern: WriteConcern, read_concern: ReadConcern
+    ) -> None: ...
     @property
     def codec_options(self) -> CodecOptions: ...
     @property

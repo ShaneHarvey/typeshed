@@ -1,8 +1,15 @@
-from pymongo.ismaster import IsMaster
 from typing import Any, Dict, Optional, Set, Tuple
 
+from pymongo.ismaster import IsMaster
+
 class ServerDescription:
-    def __init__(self, address: Tuple[str, int], ismaster: Optional[IsMaster]=..., round_trip_time: Optional[float]=..., error: Optional[Any]=...) -> None: ...
+    def __init__(
+        self,
+        address: Tuple[str, int],
+        ismaster: Optional[IsMaster] = ...,
+        round_trip_time: Optional[float] = ...,
+        error: Optional[Any] = ...,
+    ) -> None: ...
     @property
     def address(self) -> Tuple[str, int]: ...
     @property

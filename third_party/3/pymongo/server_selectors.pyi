@@ -1,6 +1,7 @@
+from typing import Any, Mapping, Sequence
+
 from pymongo.server_description import ServerDescription
 from pymongo.topology_description import TopologyDescription
-from typing import Any, Mapping, Sequence
 
 class Selection:
     @classmethod
@@ -9,7 +10,13 @@ class Selection:
     server_descriptions: Any = ...
     primary: Any = ...
     common_wire_version: Any = ...
-    def __init__(self, topology_description: TopologyDescription, server_descriptions: Sequence[ServerDescription], common_wire_version: int, primary: ServerDescription) -> None: ...
+    def __init__(
+        self,
+        topology_description: TopologyDescription,
+        server_descriptions: Sequence[ServerDescription],
+        common_wire_version: int,
+        primary: ServerDescription,
+    ) -> None: ...
     def with_server_descriptions(self, server_descriptions: Sequence[ServerDescription]) -> Selection: ...
     def secondary_with_max_last_write_date(self) -> ServerDescription: ...
     @property
