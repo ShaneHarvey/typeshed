@@ -1,4 +1,6 @@
+from queue import Queue
 from typing import Any, Callable, Iterator, Mapping, Optional, Sequence, Tuple
+from weakref import ref
 
 from bson import ObjectId
 from pymongo.auth import MongoCredential as MongoCredential
@@ -16,7 +18,7 @@ class Server:
         monitor: Monitor,
         topology_id: Optional[ObjectId] = ...,
         listeners: Optional[_EventListeners] = ...,
-        events: Optional[Queue[Tuple[Callable[..., Any], Sequence[Any]]]] = ...,
+        events: Optional[ref[Queue[Tuple[Callable[..., Any], Sequence[Any]]]]] = ...,
     ) -> None: ...
     def open(self) -> None: ...
     def reset(self) -> None: ...

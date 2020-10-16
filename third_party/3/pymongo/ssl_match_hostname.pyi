@@ -1,3 +1,0 @@
-from typing import Any, Mapping
-
-def match_hostname(cert: Mapping[str, Any], hostname: str) -> None: ...

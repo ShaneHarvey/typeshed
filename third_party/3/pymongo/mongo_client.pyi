@@ -4,7 +4,7 @@ from bson import CodecOptions as CodecOptions
 from pymongo import common
 from pymongo.cursor_manager import CursorManager
 from pymongo.database import Database
-from pymongo.monitoring import _EventListeners
+from pymongo.monitoring import _EventListener
 from pymongo.read_concern import ReadConcern
 from pymongo.read_preferences import _ServerMode
 from pymongo.write_concern import WriteConcern
@@ -35,7 +35,7 @@ class MongoClient(common.BaseObject):
         start_after: Optional[Any] = ...,
     ): ...
     @property
-    def event_listeners(self) -> _EventListeners: ...
+    def event_listeners(self) -> Tuple[Sequence[_EventListener]]: ...
     @property
     def address(self) -> Union[Tuple[str, int], None]: ...
     @property
