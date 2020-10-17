@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Mapping, Optional, Sequence, Union
 
-from bson import CodecOptions as CodecOptions, DBRef
+from bson.codec_options import CodecOptions
+from bson.dbref import DBRef
 from pymongo import MongoClient, common
 from pymongo.client_session import ClientSession
 from pymongo.collection import Collection
@@ -63,7 +64,7 @@ class Database(common.BaseObject):
         session: Optional[ClientSession] = ...,
         **kwargs: Any,
     ) -> Collection: ...
-    def aggregate(self, pipeline: Any, session: Optional[Any] = ..., **kwargs: Any): ...
+    def aggregate(self, pipeline: Any, session: Optional[ClientSession] = ..., **kwargs: Any): ...
     def watch(
         self,
         pipeline: Optional[Any] = ...,
@@ -73,7 +74,7 @@ class Database(common.BaseObject):
         batch_size: Optional[Any] = ...,
         collation: Optional[Any] = ...,
         start_at_operation_time: Optional[Any] = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
         start_after: Optional[Any] = ...,
     ): ...
     def command(
@@ -87,8 +88,8 @@ class Database(common.BaseObject):
         session: Optional[ClientSession] = ...,
         **kwargs: Any,
     ) -> Any: ...
-    def list_collections(self, session: Optional[Any] = ..., filter: Optional[Any] = ..., **kwargs: Any): ...
-    def list_collection_names(self, session: Optional[Any] = ..., filter: Optional[Any] = ..., **kwargs: Any): ...
+    def list_collections(self, session: Optional[ClientSession] = ..., filter: Optional[Any] = ..., **kwargs: Any): ...
+    def list_collection_names(self, session: Optional[ClientSession] = ..., filter: Optional[Any] = ..., **kwargs: Any): ...
     def collection_names(self, include_system_collections: bool = ..., session: Optional[ClientSession] = ...) -> List[str]: ...
     def drop_collection(
         self, name_or_collection: Union[str, Collection], session: Optional[ClientSession] = ...
@@ -98,7 +99,7 @@ class Database(common.BaseObject):
         name_or_collection: Any,
         scandata: bool = ...,
         full: bool = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
         background: Optional[Any] = ...,
     ): ...
     def current_op(self, include_all: bool = ..., session: Optional[ClientSession] = ...) -> Dict[str, Any]: ...

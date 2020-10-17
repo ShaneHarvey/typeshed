@@ -1,5 +1,6 @@
 from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple, Union
 
+from pymongo.client_session import ClientSession
 from pymongo.collation import Collation
 from pymongo.collection import Collection
 from pymongo.pool import Pool, SocketInfo
@@ -43,7 +44,7 @@ class Cursor:
         show_record_id: bool = ...,
         snapshot: bool = ...,
         comment: Optional[Any] = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
         allow_disk_use: Optional[Any] = ...,
     ) -> None: ...
     @property

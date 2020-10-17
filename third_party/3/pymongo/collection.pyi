@@ -7,11 +7,13 @@ from pymongo.client_session import ClientSession
 from pymongo.command_cursor import CommandCursor
 from pymongo.cursor import Cursor, RawBatchCursor
 from pymongo.database import Database
-from pymongo.operations import IndexModel, _WriteOp
+from pymongo.operations import DeleteMany, DeleteOne, IndexModel, InsertOne, ReplaceOne, UpdateMany, UpdateOne
 from pymongo.read_concern import ReadConcern
 from pymongo.read_preferences import _ServerMode
 from pymongo.results import BulkWriteResult, InsertManyResult, InsertOneResult
 from pymongo.write_concern import WriteConcern
+
+WriteOp = Union[InsertOne, DeleteOne, DeleteMany, ReplaceOne, UpdateOne, UpdateMany]
 
 class ReturnDocument:
     BEFORE: bool = ...
@@ -51,7 +53,7 @@ class Collection(common.BaseObject):
     def initialize_ordered_bulk_op(self, bypass_document_validation: bool = ...) -> BulkOperationBuilder: ...
     def bulk_write(
         self,
-        requests: Sequence[_WriteOp],
+        requests: Sequence[WriteOp],
         ordered: bool = ...,
         bypass_document_validation: bool = ...,
         session: Optional[ClientSession] = ...,
@@ -74,7 +76,7 @@ class Collection(common.BaseObject):
         bypass_document_validation: bool = ...,
         collation: Optional[Any] = ...,
         hint: Optional[Any] = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
     ): ...
     def update_one(
         self,
@@ -85,7 +87,7 @@ class Collection(common.BaseObject):
         collation: Optional[Any] = ...,
         array_filters: Optional[Any] = ...,
         hint: Optional[Any] = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
     ): ...
     def update_many(
         self,
@@ -96,14 +98,14 @@ class Collection(common.BaseObject):
         bypass_document_validation: bool = ...,
         collation: Optional[Any] = ...,
         hint: Optional[Any] = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
     ): ...
     def drop(self, session: Optional[ClientSession] = ...) -> None: ...
     def delete_one(
-        self, filter: Any, collation: Optional[Any] = ..., hint: Optional[Any] = ..., session: Optional[Any] = ...
+        self, filter: Any, collation: Optional[Any] = ..., hint: Optional[Any] = ..., session: Optional[ClientSession] = ...
     ): ...
     def delete_many(
-        self, filter: Any, collation: Optional[Any] = ..., hint: Optional[Any] = ..., session: Optional[Any] = ...
+        self, filter: Any, collation: Optional[Any] = ..., hint: Optional[Any] = ..., session: Optional[ClientSession] = ...
     ): ...
     def find_one(self, filter: Optional[Mapping[str, Any]] = ..., *args: Any, **kwargs: Any) -> Optional[Dict[str, Any]]: ...
     def find(self, *args: Any, **kwargs: Any) -> Cursor: ...
@@ -124,9 +126,9 @@ class Collection(common.BaseObject):
     def ensure_index(
         self, key_or_list: Union[str, Sequence[Tuple[str, Union[int, str]]]], cache_for: int = ..., **kwargs: Any
     ) -> Optional[str]: ...
-    def drop_indexes(self, session: Optional[Any] = ..., **kwargs: Any) -> None: ...
-    def drop_index(self, index_or_name: Any, session: Optional[Any] = ..., **kwargs: Any) -> None: ...
-    def reindex(self, session: Optional[Any] = ..., **kwargs: Any): ...
+    def drop_indexes(self, session: Optional[ClientSession] = ..., **kwargs: Any) -> None: ...
+    def drop_index(self, index_or_name: Any, session: Optional[ClientSession] = ..., **kwargs: Any) -> None: ...
+    def reindex(self, session: Optional[ClientSession] = ..., **kwargs: Any): ...
     def list_indexes(self, session: Optional[ClientSession] = ...) -> CommandCursor: ...
     def index_information(self, session: Optional[ClientSession] = ...) -> Dict[str, Any]: ...
     def options(self, session: Optional[ClientSession] = ...) -> Dict[str, Any]: ...
@@ -143,7 +145,7 @@ class Collection(common.BaseObject):
         batch_size: Optional[Any] = ...,
         collation: Optional[Any] = ...,
         start_at_operation_time: Optional[Any] = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
         start_after: Optional[Any] = ...,
     ): ...
     def group(
@@ -177,7 +179,7 @@ class Collection(common.BaseObject):
         projection: Optional[Any] = ...,
         sort: Optional[Any] = ...,
         hint: Optional[Any] = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
         **kwargs: Any,
     ): ...
     def find_one_and_replace(
@@ -189,7 +191,7 @@ class Collection(common.BaseObject):
         upsert: bool = ...,
         return_document: Any = ...,
         hint: Optional[Any] = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
         **kwargs: Any,
     ): ...
     def find_one_and_update(
@@ -202,7 +204,7 @@ class Collection(common.BaseObject):
         return_document: Any = ...,
         array_filters: Optional[Any] = ...,
         hint: Optional[Any] = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
         **kwargs: Any,
     ): ...
     def save(self, to_save: Mapping[str, Any], manipulate: bool = ..., check_keys: bool = ..., **kwargs: Any) -> Any: ...

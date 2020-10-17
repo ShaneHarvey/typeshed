@@ -1,4 +1,6 @@
-from typing import Any, Mapping
+from typing import Any, Mapping, Optional
+
+from pymongo.client_session import ClientSession
 
 class ChangeStream:
     def __init__(
@@ -11,7 +13,7 @@ class ChangeStream:
         batch_size: Any,
         collation: Any,
         start_at_operation_time: Any,
-        session: Any,
+        session: Optional[ClientSession],
         start_after: Any,
     ) -> None: ...
     def close(self) -> None: ...

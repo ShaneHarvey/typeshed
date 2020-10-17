@@ -42,7 +42,7 @@ class RawBatchCommandCursor(CommandCursor):
         retrieved: int = ...,
         batch_size: int = ...,
         max_await_time_ms: Optional[Any] = ...,
-        session: Optional[Any] = ...,
+        session: Optional[ClientSession] = ...,
         explicit_session: bool = ...,
     ) -> None: ...
     def __getitem__(self, index: Any) -> None: ...

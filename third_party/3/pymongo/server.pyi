@@ -2,7 +2,7 @@ from queue import Queue
 from typing import Any, Callable, Iterator, Mapping, Optional, Sequence, Tuple
 from weakref import ref
 
-from bson import ObjectId
+from bson.objectid import ObjectId
 from pymongo.auth import MongoCredential as MongoCredential
 from pymongo.monitor import Monitor
 from pymongo.monitoring import _EventListeners

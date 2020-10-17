@@ -1,4 +1,4 @@
-import queue as Queue
+from queue import Queue
 from typing import Any, Callable, List, Optional, Sequence, Set, Tuple
 
 from pymongo.server import Server
