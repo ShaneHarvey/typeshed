@@ -1,6 +1,5 @@
 from typing import Any, Dict, Optional, Tuple
 
-from pymongo import message as message
 from pymongo.client_session import ClientSession
 from pymongo.collection import Collection
 

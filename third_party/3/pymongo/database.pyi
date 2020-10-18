@@ -80,11 +80,11 @@ class Database(common.BaseObject):
     def command(
         self,
         command: Union[str, Mapping[str, Any]],
-        value: int = ...,
-        check: bool = ...,
+        value: Optional[int] = ...,
+        check: Optional[bool] = ...,
         allowable_errors: Optional[Sequence[str]] = ...,
-        read_preference: _ServerMode = ...,
-        codec_options: CodecOptions = ...,
+        read_preference: Optional[_ServerMode] = ...,
+        codec_options: Optional[CodecOptions] = ...,
         session: Optional[ClientSession] = ...,
         **kwargs: Any,
     ) -> Any: ...

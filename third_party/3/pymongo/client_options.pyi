@@ -1,7 +1,7 @@
 from typing import Any, Dict, Optional
 
-from bson.codec_options import CodecOptions as CodecOptions
-from pymongo.auth import MongoCredential as MongoCredential
+from bson.codec_options import CodecOptions
+from pymongo.auth import MongoCredential
 from pymongo.pool import PoolOptions
 from pymongo.read_concern import ReadConcern
 from pymongo.read_preferences import _ServerMode

@@ -2,10 +2,10 @@ from socket import socket
 from ssl import SSLContext
 from typing import Any, Dict, Iterator, Mapping, Optional, Tuple, Union
 
-from pymongo.auth import MongoCredential as MongoCredential
+from pymongo.auth import MongoCredential
 from pymongo.client_session import ClientSession
 from pymongo.compression_support import CompressionSettings
-from pymongo.driver_info import DriverInfo as DriverInfo
+from pymongo.driver_info import DriverInfo
 from pymongo.errors import PyMongoError
 from pymongo.ismaster import IsMaster
 from pymongo.monitoring import _EventListeners

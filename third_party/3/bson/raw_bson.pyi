@@ -1,7 +1,7 @@
+from collections import abc
 from typing import Any, Optional
 
-from bson.codec_options import CodecOptions as CodecOptions
-from bson.py3compat import abc
+from bson.codec_options import CodecOptions
 
 class RawBSONDocument(abc.Mapping):
     def __init__(self, bson_bytes: bytes, codec_options: Optional[CodecOptions] = ...) -> None: ...

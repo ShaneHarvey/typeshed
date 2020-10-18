@@ -1,19 +1,20 @@
 import abc
 import datetime
-from abc import abstractmethod
 from collections import namedtuple
 from typing import Any, Callable, Iterable, Optional, Union
 
-from bson.py3compat import ABC
-
-class TypeEncoder(ABC, metaclass=abc.ABCMeta):
+class TypeEncoder(abc.ABC, metaclass=abc.ABCMeta):
+    @property
+    @abc.abstractmethod
     def python_type(self) -> Any: ...
-    @abstractmethod
+    @abc.abstractmethod
     def transform_python(self, value: Any) -> Any: ...
 
-class TypeDecoder(ABC, metaclass=abc.ABCMeta):
+class TypeDecoder(abc.ABC, metaclass=abc.ABCMeta):
+    @property
+    @abc.abstractmethod
     def bson_type(self) -> Any: ...
-    @abstractmethod
+    @abc.abstractmethod
     def transform_bson(self, value: Any) -> Any: ...
 
 class TypeCodec(TypeEncoder, TypeDecoder, metaclass=abc.ABCMeta): ...

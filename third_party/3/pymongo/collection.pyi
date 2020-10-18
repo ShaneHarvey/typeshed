@@ -154,7 +154,7 @@ class Collection(common.BaseObject):
         condition: Mapping[str, Any],
         initial: Mapping[str, int],
         reduce: str,
-        finalize: str = ...,
+        finalize: Optional[bool] = ...,
         **kwargs: Any,
     ) -> List[Dict[str, Any]]: ...
     def rename(self, new_name: str, session: Optional[ClientSession] = ..., **kwargs: Any) -> None: ...
@@ -230,11 +230,11 @@ class Collection(common.BaseObject):
     def find_and_modify(
         self,
         query: Mapping[str, Any] = ...,
-        update: Mapping[str, Any] = ...,
-        upsert: bool = ...,
+        update: Optional[Mapping[str, Any]] = ...,
+        upsert: Optional[bool] = ...,
         sort: Optional[Sequence[Tuple[str, Union[int, str]]]] = ...,
-        full_response: bool = ...,
-        manipulate: bool = ...,
+        full_response: Optional[bool] = ...,
+        manipulate: Optional[bool] = ...,
         **kwargs: Any,
     ) -> Dict[str, Any]: ...
     def __iter__(self) -> Any: ...

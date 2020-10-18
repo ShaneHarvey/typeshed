@@ -8,7 +8,7 @@ from pymongo.read_concern import ReadConcern
 from pymongo.read_preferences import _ServerMode
 from pymongo.write_concern import WriteConcern
 
-ORDERED_TYPES: Tuple[Type[MutableMapping]]
+ORDERED_TYPES: Sequence[Type]
 MAX_BSON_SIZE: int
 MAX_MESSAGE_SIZE: int
 MIN_WIRE_VERSION: int

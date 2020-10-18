@@ -1,6 +1,6 @@
 from typing import Any, Dict, FrozenSet, Optional, Sequence, Set, Tuple, Union
 
-from bson import CodecOptions as CodecOptions
+from bson import CodecOptions
 from pymongo import common
 from pymongo.client_session import ClientSession
 from pymongo.cursor_manager import CursorManager
