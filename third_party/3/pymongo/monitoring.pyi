@@ -1,13 +1,8 @@
 import datetime
-from collections import namedtuple
 from typing import Any, Dict, Mapping, Optional, Sequence, Tuple
 
 from pymongo.ismaster import IsMaster
 from pymongo.server_description import ServerDescription
-
-_Listeners = namedtuple(
-    "Listeners", ["command_listeners", "server_listeners", "server_heartbeat_listeners", "topology_listeners", "cmap_listeners"]
-)
 
 class _EventListener: ...
 

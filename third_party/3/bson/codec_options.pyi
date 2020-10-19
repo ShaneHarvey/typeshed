@@ -1,7 +1,7 @@
 import abc
 import datetime
 from collections import namedtuple
-from typing import Any, Callable, Iterable, Optional, Union
+from typing import Any, Callable, Iterable, NamedTuple, Optional, Union
 
 class TypeEncoder(abc.ABC, metaclass=abc.ABCMeta):
     @property
@@ -27,17 +27,17 @@ class TypeRegistry:
     def __eq__(self, other: Any) -> Any: ...
 
 _options_base = namedtuple(
-    "CodecOptions",
+    "_options_base",
     ["document_class", "tz_aware", "uuid_representation", "unicode_decode_error_handler", "tzinfo", "type_registry"],
 )
 
 class CodecOptions(_options_base):
     def __new__(
         cls: Any,
-        document_class: type = ...,
-        tz_aware: bool = ...,
+        document_class: Optional[type] = ...,
+        tz_aware: Optional[bool] = ...,
         uuid_representation: Optional[int] = ...,
-        unicode_decode_error_handler: str = ...,
+        unicode_decode_error_handler: Optional[str] = ...,
         tzinfo: Optional[datetime.tzinfo] = ...,
         type_registry: Optional[TypeRegistry] = ...,
     ) -> CodecOptions: ...
