@@ -1,9 +1,8 @@
-import sys
 from collections import abc as abc
 from io import BytesIO as StringIO
 from typing import Any, Callable, Iterable, Iterator, Mapping, Optional, Tuple, TypeVar
 
-PY3 = sys.version_info[0] == 3
+PY3: bool
 
 def abstractproperty(func: Any) -> Any: ...
 
